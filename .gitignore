@@ -7,5 +7,5 @@
 /public/bundles/
 /var/
 /vendor/
-/.data.json
+/data.json
 ###< symfony/framework-bundle ###

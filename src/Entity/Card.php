@@ -153,7 +153,7 @@ class Card
         return $this;
     }
 
-    public function getEffect(): ?array
+    public function getEffect(): ?string
     {
         return $this->effect;
     }

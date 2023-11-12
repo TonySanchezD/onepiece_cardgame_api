@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 class CardController extends AbstractController
 {
@@ -23,18 +24,5 @@ class CardController extends AbstractController
         
         $jsonCardList = $serializer->serialize($cardList, 'json');
         return new JsonResponse($jsonCardList, Response::HTTP_OK, [], true);
-    }
-
-    /**
-     * @Route("/api/cards", name="create_cards", methods={"POST"})
-     */
-    public function CreateCard(Request $request, SerializerInterface $serializer, EntityManagerInterface $em): JsonResponse
-    {
-        $card = $serializer->deserialize($request->getContent(), Card::class, 'json');
-        $em->persist($card);
-        $em->flush();
-
-        $jsonCard = $serializer->serialize($card, 'json');
-        return new JsonResponse($jsonCard, Response::HTTP_CREATED, [], true);
     }
 }

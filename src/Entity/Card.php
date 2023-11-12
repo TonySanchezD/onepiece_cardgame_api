@@ -38,17 +38,17 @@ class Card
     private $alternate;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $power;
 
     /**
-     * @ORM\Column(type="array", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $effect = [];
+    private $effect;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $counter;
 
@@ -83,7 +83,7 @@ class Card
     private $attribute;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $cost;
     
@@ -158,7 +158,7 @@ class Card
         return $this->effect;
     }
 
-    public function setEffect(?array $effect): self
+    public function setEffect(?string $effect): self
     {
         $this->effect = $effect;
 

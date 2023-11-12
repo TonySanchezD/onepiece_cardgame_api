@@ -15,8 +15,8 @@ class AppFixtures extends Fixture
 {    
     public function load(ObjectManager $manager): void
     {
-        $json = file_get_contents("assets\data.json");
-        $json_cards = json_decode($json, true);
+        $json_file = file_get_contents("assets\data.json");
+        $json_cards = json_decode($json_file, true);
 
         foreach ($json_cards as $json_card) {
             $card = new Card;

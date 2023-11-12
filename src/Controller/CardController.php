@@ -25,4 +25,13 @@ class CardController extends AbstractController
         $jsonCardList = $serializer->serialize($cardList, 'json');
         return new JsonResponse($jsonCardList, Response::HTTP_OK, [], true);
     }
+
+    /**
+     * @Route("/api/cards/{id}", name="get_card", methods={"GET"})
+     */
+    public function getCardById(Card $card, SerializerInterface $serializer): JsonResponse
+    {
+        $jsonCard = $serializer->serialize($card, 'json');
+        return new JsonResponse($jsonCard, Response::HTTP_OK, [], true);
+    }
 }
